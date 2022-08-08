@@ -1,16 +1,14 @@
-#anime character using Python
-
-import turtle as te
+import turtle as pp
 
 import time
 
-WriteStep = 15 # Sampling times of Bessel function
+WrippSppp = 15 # Sampling times of Bessel function
 
 Speed = 5
 
-Width = 600 # Interface width
+Width = 600 # Inpprface width
 
-Height = 500 # Interface height
+Height = 500 # Inpprface height
 
 Xh = 0 # Record the handle of the previous Bessel function
 
@@ -30,23 +28,23 @@ def Bezier(p1, p2, t): # First order Bessel function
 
 def Bezier_2(x1, y1, x2, y2, x3, y3): # Second-order Bessel function
 
-    te.goto(x1, y1)
+    pp.goto(x1, y1)
 
-    te.pendown()
+    pp.pendown()
 
-    for t in range(0, WriteStep + 1):
+    for t in range(0, WrippSppp + 1):
 
-        x = Bezier(Bezier(x1, x2, t / WriteStep),
+        x = Bezier(Bezier(x1, x2, t / WrippSppp),
 
-                   Bezier(x2, x3, t / WriteStep), t / WriteStep)
+                   Bezier(x2, x3, t / WrippSppp), t / WrippSppp)
 
-        y = Bezier(Bezier(y1, y2, t / WriteStep),
+        y = Bezier(Bezier(y1, y2, t / WrippSppp),
 
-                   Bezier(y2, y3, t / WriteStep), t / WriteStep)
+                   Bezier(y2, y3, t / WrippSppp), t / WrippSppp)
 
-        te.goto(x, y)
+        pp.goto(x, y)
 
-    te.penup()
+    pp.penup()
 
 
 
@@ -68,87 +66,87 @@ def Bezier_3(x1, y1, x2, y2, x3, y3, x4, y4): # Third-order Bessel function
 
     x4 = -Width / 2 + x4
 
-    y4 = Height / 2 - y4 # Coordinate transformation
+    y4 = Height / 2 - y4 # Coordinapp transformation
 
-    te.goto(x1, y1)
+    pp.goto(x1, y1)
 
-    te.pendown()
+    pp.pendown()
 
-    for t in range(0, WriteStep + 1):
+    for t in range(0, WrippSppp + 1):
 
-        x = Bezier(Bezier(Bezier(x1, x2, t / WriteStep), Bezier(x2, x3, t / WriteStep), t / WriteStep),
+        x = Bezier(Bezier(Bezier(x1, x2, t / WrippSppp), Bezier(x2, x3, t / WrippSppp), t / WrippSppp),
 
-                   Bezier(Bezier(x2, x3, t / WriteStep), Bezier(x3, x4, t / WriteStep), t / WriteStep), t / WriteStep)
+                   Bezier(Bezier(x2, x3, t / WrippSppp), Bezier(x3, x4, t / WrippSppp), t / WrippSppp), t / WrippSppp)
 
-        y = Bezier(Bezier(Bezier(y1, y2, t / WriteStep), Bezier(y2, y3, t / WriteStep), t / WriteStep),
+        y = Bezier(Bezier(Bezier(y1, y2, t / WrippSppp), Bezier(y2, y3, t / WrippSppp), t / WrippSppp),
 
-                   Bezier(Bezier(y2, y3, t / WriteStep), Bezier(y3, y4, t / WriteStep), t / WriteStep), t / WriteStep)
+                   Bezier(Bezier(y2, y3, t / WrippSppp), Bezier(y3, y4, t / WrippSppp), t / WrippSppp), t / WrippSppp)
 
-        te.goto(x, y)
+        pp.goto(x, y)
 
-    te.penup()
-
-
-
-
-
-def Moveto(x, y): # Move to svg coordinates (x, y)
-
-    te.penup()
-
-    te.goto(-Width / 2 + x, Height / 2 - y)
+    pp.penup()
 
 
 
 
 
-def line(x1, y1, x2, y2): # Connect two points under svg coordinates
+def Moveto(x, y): # Move to svg coordinapps (x, y)
 
-    te.penup()
+    pp.penup()
 
-    te.goto(-Width / 2 + x1, Height / 2 - y1)
-
-    te.pendown()
-
-    te.goto(-Width / 2 + x2, Height / 2 - y2)
-
-    te.penup()
+    pp.goto(-Width / 2 + x, Height / 2 - y)
 
 
 
 
 
-def lineto(dx, dy): # Connect the current point and the point with relative coordinates (dx, dy)
+def line(x1, y1, x2, y2): # Connect two points under svg coordinapps
 
-    te.pendown()
+    pp.penup()
 
-    te.goto(te.xcor() + dx, te.ycor() - dy)
+    pp.goto(-Width / 2 + x1, Height / 2 - y1)
 
-    te.penup()
+    pp.pendown()
 
+    pp.goto(-Width / 2 + x2, Height / 2 - y2)
 
-
-
-
-def Lineto(x, y): # Connect the current point and svg coordinates (x, y)
-
-    te.pendown()
-
-    te.goto(-Width / 2 + x, Height / 2 - y)
-
-    te.penup()
+    pp.penup()
 
 
 
 
 
-def Horizontal(x): # Make the horizontal line with the abscissa x in the svg coordinates
+def lineto(dx, dy): # Connect the current point and the point with relative coordinapps (dx, dy)
 
-    te.pendown()
+    pp.pendown()
 
-    te.setx(x - Width / 2)
+    pp.goto(pp.xcor() + dx, pp.ycor() - dy)
 
-    te.penup()
+    pp.penup()
+
+
+
+
+
+def Lineto(x, y): # Connect the current point and svg coordinapps (x, y)
+
+    pp.pendown()
+
+    pp.goto(-Width / 2 + x, Height / 2 - y)
+
+    pp.penup()
+
+
+
+
+
+def Horizontal(x): # Make the horizontal line with the abscissa x in the svg coordinapps
+
+    pp.pendown()
+
+    pp.setx(x - Width / 2)
+
+    pp.penup()
 
 
 
@@ -156,59 +154,58 @@ def Horizontal(x): # Make the horizontal line with the abscissa x in the svg coo
 
 def horizontal(dx): # Make the horizontal line with relative abscissa dx
 
-    te.seth(0)
+    pp.seth(0)
 
-    te.pendown()
+    pp.pendown()
 
-    te.fd(dx)
+    pp.fd(dx)
 
-    te.penup()
-
-
-
-
-
-def vertical(dy): # Make the vertical line with the relative ordinate dy
-
-    te.seth(-90)
-
-    te.pendown()
-
-    te.fd(dy)
-
-    te.penup()
-
-    te.seth(0)
+    pp.penup()
 
 
 
 
 
-def polyline(x1, y1, x2, y2, x3, y3): # Make a polyline under svg coordinates
+def vertical(dy): # Make the vertical line with the relative ordinapp dy
 
-    te.penup()
+    pp.seth(-90)
 
-    te.goto(-Width / 2 + x1, Height / 2 - y1)
+    pp.pendown()
 
-    te.pendown()
+    pp.fd(dy)
 
-    te.goto(-Width / 2 + x2, Height / 2 - y2)
+    pp.penup()
 
-    te.goto(-Width / 2 + x3, Height / 2 - y3)
+    pp.seth(0)
 
-    te.penup()
 
+
+
+
+def polyline(x1, y1, x2, y2, x3, y3): # Make a polyline under svg coordinapps
+
+    pp.penup()
+
+    pp.goto(-Width / 2 + x1, Height / 2 - y1)
+
+    pp.pendown()
+
+    pp.goto(-Width / 2 + x2, Height / 2 - y2)
+
+    pp.goto(-Width / 2 + x3, Height / 2 - y3)
+
+    pp.penup()
 
 
 
 
 def Curveto(x1, y1, x2, y2, x, y): # Third-order Bezier curve to (x, y)
 
-    te.penup()
+    pp.penup()
 
-    X_now = te.xcor() + Width / 2
+    X_now = pp.xcor() + Width / 2
 
-    Y_now = Height / 2 - te.ycor()
+    Y_now = Height / 2 - pp.ycor()
 
     Bezier_3(X_now, Y_now, x1, y1, x2, y2, x, y)
 
@@ -224,13 +221,13 @@ def Curveto(x1, y1, x2, y2, x, y): # Third-order Bezier curve to (x, y)
 
 
 
-def curveto_r(x1, y1, x2, y2, x, y): # Third-order Bezier curve to relative coordinates (x, y)
+def curveto_r(x1, y1, x2, y2, x, y): # Third-order Bezier curve to relative coordinapps (x, y)
 
-    te.penup()
+    pp.penup()
 
-    X_now = te.xcor() + Width / 2
+    X_now = pp.xcor() + Width / 2
 
-    Y_now = Height / 2 - te.ycor()
+    Y_now = Height / 2 - pp.ycor()
 
     Bezier_3(X_now, Y_now, X_now + x1, Y_now + y1,
 
@@ -254,11 +251,11 @@ def Smooth(x2, y2, x, y): # Smooth the third-order Bezier curve to (x, y)
 
     global Yh
 
-    te.penup()
+    pp.penup()
 
-    X_now = te.xcor() + Width / 2
+    X_now = pp.xcor() + Width / 2
 
-    Y_now = Height / 2 - te.ycor()
+    Y_now = Height / 2 - pp.ycor()
 
     Bezier_3(X_now, Y_now, X_now + Xh, Y_now + Yh, x2, y2, x, y)
 
@@ -270,17 +267,17 @@ def Smooth(x2, y2, x, y): # Smooth the third-order Bezier curve to (x, y)
 
 
 
-def smooth_r(x2, y2, x, y): # Smooth the third-order Bezier curve to relative coordinates (x, y)
+def smooth_r(x2, y2, x, y): # Smooth the third-order Bezier curve to relative coordinapps (x, y)
 
     global Xh
 
     global Yh
 
-    te.penup()
+    pp.penup()
 
-    X_now = te.xcor() + Width / 2
+    X_now = pp.xcor() + Width / 2
 
-    Y_now = Height / 2 - te.ycor()
+    Y_now = Height / 2 - pp.ycor()
 
     Bezier_3(X_now, Y_now, X_now + Xh, Y_now + Yh,
 
@@ -292,15 +289,15 @@ def smooth_r(x2, y2, x, y): # Smooth the third-order Bezier curve to relative co
 
 
 
-te.tracer(10)
+pp.tracer(10)
 
-te.setup(Width, Height, 0, 0)
+pp.setup(Width, Height, 0, 0)
 
-te.pensize(1)
+pp.pensize(1)
 
-te.speed(Speed)
+pp.speed(Speed)
 
-te.penup()
+pp.penup()
 
 
 
@@ -308,11 +305,11 @@ te.penup()
 
 time.sleep(20)
 
-te.color("black", "#F2F2F2") # Coat
+pp.color("black", "#F2F2F2") # Coat
 
 Moveto(61, 462)
 
-te.begin_fill()
+pp.begin_fill()
 
 smooth_r(12, -41, 27, -58)
 
@@ -352,15 +349,15 @@ smooth_r(-8, 23, -8, 23)
 
 Lineto(61, 462)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(60.5, 461.5) # Shadow
 
-te.color("black", "#D3DFF0")
+pp.color("black", "#D3DFF0")
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(0, 0, 17, -42, 27, -59)
 
@@ -368,11 +365,11 @@ curveto_r(-6, -33, 6, -128, 10, -133)
 
 curveto_r(-15, -10, -27, -66, -27.285, -75)
 
-te.pencolor("#D3DFF0")
+pp.pencolor("#D3DFF0")
 
 curveto_r(12.285, 11, 82.963, 156, 82.963, 156)
 
-te.pencolor("black")
+pp.pencolor("black")
 
 smooth_r(12.322, 75, 19.322, 86)
 
@@ -380,25 +377,25 @@ curveto_r(-1, 11, -8, 25, -8, 25)
 
 Horizontal(60.5)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(444.5, 464)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(0, 0, -29, -36, -31, -46)
 
 smooth_r(53.59, -82.337, 53.59, -82.337)
 
-te.pencolor("#D3DFF0")
+pp.pencolor("#D3DFF0")
 
 smooth_r(86.41, -47.663, 96.072, -54.85)
 
 Curveto(563.5, 297.5, 570.5, 299.5, 518.5, 334)
 
-te.pencolor("black")
+pp.pencolor("black")
 
 curveto_r(-2, 16, -12, 33, -12, 37)
 
@@ -406,33 +403,33 @@ smooth_r(50, 92, 50, 93)
 
 Horizontal(444.5)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(195, 49)
 
-te.begin_fill()
+pp.begin_fill()
 
-te.pencolor("#D3DFF0")
+pp.pencolor("#D3DFF0")
 
 polyline(195, 49, 175.5, 106.5, 202.522, 49)
 
-te.pencolor("black")
+pp.pencolor("black")
 
 Horizontal(195)
 
-te.pencolor("#D3DFF0")
+pp.pencolor("#D3DFF0")
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(327.997, 49)
 
-te.begin_fill()
+pp.begin_fill()
 
-te.pencolor("#D3DFF0")
+pp.pencolor("#D3DFF0")
 
 curveto_r(0, 0, 11.503, 121.087, 13.503, 128.087)
 
@@ -440,17 +437,17 @@ curveto_r(11, 2, 54, 37, 54, 37)
 
 lineto(-40, -165.087)
 
-te.pencolor("black")
+pp.pencolor("black")
 
 Horizontal(327.997)
 
-te.pencolor("#D3DFF0")
+pp.pencolor("#D3DFF0")
 
-te.end_fill()
+pp.end_fill()
 
 
 
-te.pencolor("black")
+pp.pencolor("black")
 
 line(94.5, 397.5, 107.5, 373.5) # Wrinkles
 
@@ -480,11 +477,11 @@ curveto_r(4, 16, -5, 33, -5, 33)
 
 # Layer_3
 
-te.color("black", "#2b1d2a") # Inside the jacket
+pp.color("black", "#2b1d2a") # Inside the jacket
 
 Moveto(225, 462)
 
-te.begin_fill()
+pp.begin_fill()
 
 Horizontal(165)
 
@@ -496,13 +493,13 @@ Curveto(185, 305, 202, 428, 225, 462)
 
 Lineto(225, 462)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(390, 462)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(10, -23, 34, -180, 35, -222) # !!!227
 
@@ -514,15 +511,15 @@ curveto_r(5, 15, 31, 46, 31, 45)
 
 Lineto(390, 462)
 
-te.end_fill()
+pp.end_fill()
 
 # Layer_4
 
-te.color("black", "#2b1d29") # Inside the jacket
+pp.color("black", "#2b1d29") # Inside the jacket
 
 Moveto(225, 462)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-28, -50, -40, -166, -40, -250)
 
@@ -538,15 +535,15 @@ curveto_r(0, 29, -25, 201, -36, 225)
 
 Lineto(225, 462)
 
-te.end_fill()
+pp.end_fill()
 
 # Layer_5
 
-te.color("black", "#3D3D3D") # Clothes
+pp.color("black", "#3D3D3D") # Clothes
 
 Moveto(225, 462)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-5, -5, -22, -53, -23, -70)
 
@@ -574,15 +571,15 @@ smooth_r(-17, 83, -17, 78)
 
 Lineto(225, 462)
 
-te.end_fill()
+pp.end_fill()
 
 # Layer_6
 
-te.color("black", "#968281") # Neck
+pp.color("black", "#968281") # Neck
 
 Moveto(262, 329)
 
-te.begin_fill()
+pp.begin_fill()
 
 vertical(17)
 
@@ -602,15 +599,15 @@ curveto_r(1, -1, 3, -16, 2, -17)
 
 Curveto(318, 348, 296, 344, 262, 329)
 
-te.end_fill()
+pp.end_fill()
 
 # Layer_8
 
-te.color("black", "#E7F1FF") # White folds
+pp.color("black", "#E7F1FF") # Whipp folds
 
 Moveto(225, 462)
 
-te.begin_fill()
+pp.begin_fill()
 
 lineto(-3, -5) # -3,-3,-3,-5
 
@@ -650,11 +647,11 @@ lineto(-2, 8)
 
 Lineto(225, 462)
 
-te.end_fill()
+pp.end_fill()
 
 
 
-te.pensize(2)
+pp.pensize(2)
 
 Moveto(240, 450)
 
@@ -664,15 +661,15 @@ Moveto(372, 462)
 
 curveto_r(-2, -4, -5, -29, -7, -28)
 
-te.pensize(1)
+pp.pensize(1)
 
 # Layer_7
 
-te.color("black", "#A2B8D6") # Collar
+pp.color("black", "#A2B8D6") # Collar
 
 Moveto(262, 331)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(0, 8, -1, 13, 0, 15)
 
@@ -706,7 +703,7 @@ smooth_r(-10, -26, -10, -30)
 
 Smooth(255, 332, 262, 331)
 
-te.end_fill()
+pp.end_fill()
 
 
 
@@ -720,11 +717,11 @@ curveto_r(2, 4, -6, 10, -15, 14)
 
 # Layer_9
 
-te.color("black", "#151515") # Tie
+pp.color("black", "#151515") # Tie
 
 Moveto(247, 358)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-5, 3, -8, 20, -6, 23)
 
@@ -756,15 +753,15 @@ smooth_r(-11, -3, -15, -1)
 
 Smooth(252, 356, 247, 358)
 
-te.end_fill()
+pp.end_fill()
 
 # Layer_10
 
-te.color("black", "#A2B8D6") # Collar (through bow tie)
+pp.color("black", "#A2B8D6") # Collar (through bow tie)
 
 Moveto(297, 387)
 
-te.begin_fill()
+pp.begin_fill()
 
 lineto(-11, 6)
 
@@ -772,13 +769,13 @@ curveto_r(-1, 0, -20, -7, -30, -19)
 
 Curveto(259, 373, 297, 385, 297, 387)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(323, 384)
 
-te.begin_fill()
+pp.begin_fill()
 
 lineto(8, 7)
 
@@ -788,15 +785,15 @@ curveto_r(1, -1, 5, -6, 4, -7)
 
 Smooth(329, 379, 323, 384)
 
-te.end_fill()
+pp.end_fill()
 
 # Layer_11
 
-te.color("black", "#F3EEEB") # Face
+pp.color("black", "#F3EEEB") # Face
 
 Moveto(185, 212)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(4, -9, 46, -77, 52, -75)
 
@@ -814,15 +811,15 @@ smooth_r(-77, -22, -86, -26)
 
 Curveto(180, 302, 186, 228, 185, 212)
 
-te.end_fill()
+pp.end_fill()
 
 # Layer_12
 
-te.color("black", "#2B1D29") # Hair
+pp.color("black", "#2B1D29") # Hair
 
 Moveto(189, 202)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-1, 22, 19, 51, 19, 51)
 
@@ -830,13 +827,13 @@ smooth_r(-10, -42, 7, -92)
 
 Curveto(212, 168, 196, 189, 189, 202)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(221, 155)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-2, 6, 5, 48, 5, 48)
 
@@ -852,13 +849,13 @@ curveto_r(-17, 18, -27, 71, -27, 71)
 
 Lineto(221, 155)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(264, 64)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-4, 5, 14, 100, 14, 100)
 
@@ -870,13 +867,13 @@ smooth_r(8, -50, 3, -65)
 
 Smooth(272, 64, 264, 64)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(342, 176)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-1, 27, -10, 57, -10, 57)
 
@@ -884,23 +881,23 @@ smooth_r(20, -33, 17, -54)
 
 Lineto(342, 176)
 
-te.end_fill()
+pp.end_fill()
 
 
 
-te.penup()
+pp.penup()
 
-te.begin_fill()
+pp.begin_fill()
 
 polyline(349, 180, 353, 203, 361, 203)
 
 polyline(361, 203, 362, 188, 349, 180)
 
-te.end_fill()
+pp.end_fill()
 
 # Layer_13
 
-te.pensize(2)
+pp.pensize(2)
 
 Moveto(210, 180) # Eyebrows
 
@@ -910,17 +907,17 @@ Moveto(338, 193)
 
 curveto_r(0, -3, 18, -6, 18, -6)
 
-te.pensize(1)
+pp.pensize(1)
 
 # Layer_14
 
-te.color("black", "#D1D1D1") # Eye 1
+pp.color("black", "#D1D1D1") # Eye 1
 
-te.pensize(2)
+pp.pensize(2)
 
 Moveto(206, 212)
 
-te.begin_fill()
+pp.begin_fill()
 
 lineto(15, -7)
 
@@ -928,9 +925,9 @@ curveto_r(4, -1, 26, -2, 30, 0)
 
 smooth_r(10, 3, 12, 7)
 
-te.pencolor("#D1D1D1")
+pp.pencolor("#D1D1D1")
 
-te.pensize(1)
+pp.pensize(1)
 
 smooth_r(2, 27, -1, 30)
 
@@ -938,25 +935,25 @@ smooth_r(-39, 5, -44, 1)
 
 Smooth(206, 212, 206, 212)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(384, 204)
 
-te.begin_fill()
+pp.begin_fill()
 
-te.pencolor("black")
+pp.pencolor("black")
 
-te.pensize(2)
+pp.pensize(2)
 
 curveto_r(-3, -1, -18, -1, -28, 1)
 
 smooth_r(-9, 6, -10, 9)
 
-te.pencolor("#D1D1D1")
+pp.pencolor("#D1D1D1")
 
-te.pensize(1)
+pp.pensize(1)
 
 smooth_r(3, 18, 6, 23)
 
@@ -964,23 +961,23 @@ smooth_r(38, 6, 40, 4)
 
 smooth_r(10, -9, 13, -22)
 
-te.pencolor("black")
+pp.pencolor("black")
 
-te.pensize(2)
+pp.pensize(2)
 
 Lineto(384, 204)
 
-te.end_fill()
+pp.end_fill()
 
 # Layer_15
 
-te.color("#0C1631", "#0C1631") # Eye 2
+pp.color("#0C1631", "#0C1631") # Eye 2
 
-te.pensize(1)
+pp.pensize(1)
 
 Moveto(216, 206)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-1, 5, 0, 26, 7, 35)
 
@@ -990,13 +987,13 @@ smooth_r(5, -31, 2, -34)
 
 Smooth(219, 203, 216, 206)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(354, 207)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-2, 1, 2, 29, 4, 31)
 
@@ -1008,29 +1005,27 @@ lineto(-11, -8)
 
 Curveto(382, 204, 357, 206, 354, 207)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 # Layer_17
 
-te.color("#F5F5F5", "#F5F5F5") # Eye 3
+pp.color("#F5F5F5", "#F5F5F5") # Eye 3
 
 Moveto(253, 211)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-3, 0, -8, 8, 1, 10)
 
 Smooth(258, 210, 253, 211)
 
-te.end_fill()
-
-
+pp.end_fill()
 
 Moveto(392, 209)
 
-te.begin_fill()
+pp.begin_fill()
 
 lineto(4, 3)
 
@@ -1040,15 +1035,15 @@ lineto(-4, 2)
 
 Curveto(386, 214, 392, 209, 392, 209)
 
-te.end_fill()
+pp.end_fill()
 
 # Layer_18
 
-te.color("#352F53", "#352F53") # Eye 4
+pp.color("#352F53", "#352F53") # Eye 4
 
 Moveto(219, 229)
 
-te.begin_fill()
+pp.begin_fill()
 
 smooth_r(2, -5, 6, -4)
 
@@ -1062,13 +1057,11 @@ Horizontal(224)
 
 Lineto(219, 229)
 
-te.end_fill()
-
-
+pp.end_fill()
 
 Moveto(357, 227)
 
-te.begin_fill()
+pp.begin_fill()
 
 smooth_r(4, -6, 10, -2)
 
@@ -1082,17 +1075,16 @@ curveto_r(-12, 3, -29, 0, -32, -2)
 
 Smooth(357, 227, 357, 227)
 
-te.end_fill()
-
+pp.end_fill()
 
 
 # Layer_19
 
-te.color("#9A90CB", "#9A90CB") # Eye 5
+pp.color("#9A90CB", "#9A90CB") # Eye 5
 
 Moveto(227, 231)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(-6, 0, -5, 5, -3, 8)
 
@@ -1102,13 +1094,13 @@ smooth_r(0, -8, -1, -8)
 
 Smooth(234, 231, 227, 231)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 Moveto(361, 227)
 
-te.begin_fill()
+pp.begin_fill()
 
 curveto_r(2, 18, 26, 14, 30, 6)
 
@@ -1118,15 +1110,15 @@ smooth_r(-15, 9, -24, -4)
 
 Curveto(363, 224, 361, 225, 361, 227)
 
-te.end_fill()
+pp.end_fill()
 
 
 
 # Layer_16
 
-te.pencolor("black") # Eyes (lines)
+pp.pencolor("black") # Eyes (lines)
 
-te.pensize(3)
+pp.pensize(3)
 
 # Moveto(206,213)
 
@@ -1144,7 +1136,7 @@ Moveto(365, 219)
 
 curveto_r(4, 14, 18, 24, 22, -3)
 
-te.pensize(2)
+pp.pensize(2)
 
 line(240.5, 207.5, 227.5, 211.5)
 
@@ -1159,8 +1151,6 @@ line(247.5, 218.5, 230.5, 223.5)
 line(246.5, 222.5, 232.5, 226.5)
 
 line(244.5, 225.5, 234.5, 228.5)
-
-
 
 line(377.5, 207.5, 367.5, 210.5)
 
@@ -1182,24 +1172,14 @@ line(382.5, 223.5, 370.5, 227.5)
 
 # Layer_20
 
-te.pencolor("black")
-
+pp.pencolor("black")
 Moveto(309, 270) # Nose, mouth
-
 curveto_r(0, 0, 4, 7, 1, 9)
-
 line(296.5, 307.5, 303.5, 307.5)
-
 Moveto(315, 307)
-
 smooth_r(10, -1, 10, 2)
 
-
-
-te.penup()
-
-te.hideturtle()
-
-te.update()
-
-te.done()
+pp.penup()
+pp.hideturtle()
+pp.updapp()
+pp.done()
